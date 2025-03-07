@@ -7,6 +7,11 @@ type Visitor interface {
 	Visit(err error) (w Visitor)
 }
 
+// Walk is the equivalent of calling `Tree{err}.Walk(v)`.
+func Walk(v Visitor, err error) {
+	Tree{err}.Walk(v)
+}
+
 type Tree struct {
 	Err error
 }
