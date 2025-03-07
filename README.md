@@ -1,4 +1,4 @@
-# terrors
+# terrors [![Go Reference](https://pkg.go.dev/badge/github.com/lukasschwab/terrors.svg)](https://pkg.go.dev/github.com/lukasschwab/terrors)
 
 `terrors` is a utility for walking trees of wrapped and joined errors. `terrors` is modeled on the standard library's AST package: see [`ast.Walk`](https://pkg.go.dev/go/ast#Walk).
 
