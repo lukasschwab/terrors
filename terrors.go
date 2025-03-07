@@ -30,9 +30,9 @@ func (n Tree) Walk(v Visitor) {
 
 	// Walk children.
 	var children []error
-	if group, ok := n.Err.(groupError); ok {
+	if group, ok := n.Err.(errorGroup); ok {
 		children = group.Unwrap()
-	} else if parent, ok := n.Err.(parentError); ok {
+	} else if parent, ok := n.Err.(errorWrapper); ok {
 		children = []error{parent.Unwrap()}
 	}
 	for _, child := range children {
@@ -42,12 +42,12 @@ func (n Tree) Walk(v Visitor) {
 
 // An error e wraps another error if e's type has one of the methods [...]
 // `Unwrap() error`. See [errors](https://pkg.go.dev/errors).
-type parentError interface {
+type errorWrapper interface {
 	Unwrap() error
 }
 
 // An error e wraps another error if e's type has one of the methods [...]
 // `Unwrap() []error`. See [errors](https://pkg.go.dev/errors).
-type groupError interface {
+type errorGroup interface {
 	Unwrap() []error
 }
