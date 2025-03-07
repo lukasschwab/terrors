@@ -1,6 +1,7 @@
 // terrors is a utility for walking trees of wrapped and joined errors. terrors
-// is modeled on the standard library's AST package: see
-// [`ast.Walk`](https://pkg.go.dev/go/ast#Walk).
+// is modeled on the standard library's AST package: see [ast.Walk].
+//
+// [ast.Walk]: https://pkg.go.dev/go/ast#Walk
 package terrors
 
 type Visitor interface {
