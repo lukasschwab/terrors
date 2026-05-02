@@ -41,13 +41,17 @@ func (n Tree) Walk(v Visitor) {
 }
 
 // An error e wraps another error if e's type has one of the methods [...]
-// `Unwrap() error`. See [errors](https://pkg.go.dev/errors).
+// Unwrap() error. See the [errors] package.
+//
+// [errors]: https://pkg.go.dev/errors
 type errorWrapper interface {
 	Unwrap() error
 }
 
 // An error e wraps another error if e's type has one of the methods [...]
-// `Unwrap() []error`. See [errors](https://pkg.go.dev/errors).
+// Unwrap() []error. See the [errors] package.
+//
+// [errors]: https://pkg.go.dev/errors
 type errorGroup interface {
 	Unwrap() []error
 }
