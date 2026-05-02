@@ -4,7 +4,14 @@
 // [ast.Walk]: https://pkg.go.dev/go/ast#Walk
 package terrors
 
+// A Visitor controls traversal of an error tree at a given error node.
 type Visitor interface {
+	// Visit err. This is called for err before any of err's children are
+	// walked. If Visit returns nil, the children are skipped; otherwise,
+	// the children are visited with the returned Visitor w.
+	//
+	// In many cases, Visit will return the original visitor unchanged to apply
+	// the same stateless behavior to all error nodes in the tree.
 	Visit(err error) (w Visitor)
 }
 
